@@ -10,13 +10,73 @@ body {
   line-height: 1.5;
 }
 
+.accordion {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: antiquewhite;
+}
+
+.accordion-item {
+  border-bottom: 1px solid gray;
+
+}
+
+.accordion-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-item-title {
+  display: block;
+  cursor: pointer;
+  color: rgba(74, 74, 251, 0.7);
+}
+
+.accordion-item-arrow {
+  border-style: solid;
+  border-width: 8px 5px 0 5px;
+  border-color: #007bff transparent transparent transparent;
+}
+
+.accordion-item-input {
+  appearance: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.accordion-item-input:checked + .accordion-img {
+  display: block;
+}
+
+.accordion-item-input:checked ~ .accordion-item-title {
+  color: rgba(25, 25, 47, 0.7);
+}
+
+.accordion-img {
+  display: none;
+  margin: 0px auto 20px;
+  width: 50%;
+}
+
+
 @media (min-width:820px) {
   body {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
 @media (min-width:1920px) {
   body {
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+
+  /* .accordion:hover .accordion-item-title{
+    color: black;
+  } */
+
+  .accordion-item:hover .accordion-img{
+    display: block;
   }
 }
