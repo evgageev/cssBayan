@@ -11,15 +11,15 @@ body {
 }
 
 .accordion {
-  max-width: 500px;
-  margin: 1% auto;
-  padding: 20px;
+  max-width: 31.25rem;
+  margin: .625rem auto;
+  padding: 1.25rem;
   background-color: antiquewhite;
 }
 
 .accordion-title, .accordion-item {
-  margin-bottom: 10px;
-  border-bottom: 1px solid gray;;
+  margin-bottom: .625rem;
+  border-bottom: .0625rem solid gray;;
 }
 
 .accordion-item-header {
@@ -41,21 +41,21 @@ body {
   margin-left: auto;
   align-self: center;
   border-style: solid;
-  border-width: 8px 5px 0 5px;
+  border-width: .5rem .3125rem 0 .3125rem;
   border-color: #007bff transparent transparent transparent;
 }
 
-.accordion-item-input {
-  appearance: none;
-  width: 0;
-  height: 0;
+input[type="radio"]{
   position: absolute;
+  visibility: hidden;
+  height: 0;
+  width: 0;
 }
 
 .accordion-item-input:checked ~ .accordion-item-title .accordion-item-arrow {
   border-style: solid;
-  border-width: 0 5px 8px 5px;
-  border-color: transparent transparent #007bff transparent;
+  border-width: 0 .3125rem .5rem .3125rem;
+  border-color: transparent transparent rgba(25, 25, 47, 0.7) transparent;
 }
 
 .accordion-item-input:checked ~ .accordion-item-title .accordion-img {
@@ -68,17 +68,16 @@ body {
 
 .accordion-img {
   display: none;
-  margin: 0px auto 20px;
-  width: 65%;
+  margin: 0rem auto 1.25rem;
+  width: 75%;
 }
 
-
-@media (min-width:820px) {
+@media (min-width:37.5625rem) {
   body {
     font-size: 1.5rem;
   }
 }
-@media (min-width:1280px) {
+@media (min-width:80rem) {
   body {
     font-size: 1.7rem;
   }
@@ -87,13 +86,43 @@ body {
     color: rgba(25, 25, 47, 0.7);
   }
 
-  .accordion-item:hover .accordion-img{
-    display: block;
+  .accordion-item:active .accordion-item-title{
+    color: rgba(74, 74, 251, 0.7);
   }
 
+  .accordion-item:active .accordion-img{
+    opacity: 0.7;
+  }
+
+  .accordion-item-arrow {
+    display: none;
+  }
+
+  .accordion:hover .accordion-item-title .accordion-item-arrow {
+    display: inline-block;
+  }
+
+  .accordion-item:hover .accordion-img{
+    display: block;
+    animation: fade_in_show 0.5s;
+  }
+
+  @keyframes fade_in_show {
+    0% {
+         opacity: 0;
+         transform: scale(0)
+    }
+
+    100% {
+         opacity: 1;
+         transform: scale(1)
+    }
+}
+
   .accordion-item-input:hover ~ .accordion-item-title .accordion-item-arrow {
+    display: inline-block;
     border-style: solid;
-    border-width: 0 5px 8px 5px;
-    border-color: transparent transparent #007bff transparent;
+    border-width: 0 .3125rem .5rem .3125rem;
+    border-color: transparent transparent rgba(25, 25, 47, 0.7) transparent;
   }
 }
